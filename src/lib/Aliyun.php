@@ -23,12 +23,11 @@ class Aliyun {
     /**
      * 发送普通短信
      * @param string|array $mobile 
-     * @param array $params
+     * @param array|string $params
      * @return boolean
      */
     public function sendSms($mobile, $params) {
-        $sms_id = $params['sms_id'];
-        unset($params['sms_id']);
+        $sms_id = $this->config['sms_id'];
         if (empty($sms_id)) {
             $this->error = "参数有误：sms_id不能为空";
             return false;
@@ -48,8 +47,12 @@ class Aliyun {
         if (is_array($mobile)) {
             $mobile = implode(",", $mobile);
         }
-        foreach ($params as $key => $value) {
-            $params[$key] = (string) $value;
+        if (is_array($params)) {
+            foreach ($params as $key => $value) {
+                $params[$key] = (string) $value;
+            }
+        }else{
+            $params = ['code' => (string) $params];
         }
         
         
