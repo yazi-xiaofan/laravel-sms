@@ -1,0 +1,16 @@
+{
+    "name": "xiaofan/laravel-sms",
+    "description": "短信扩展包",
+    "keywords": ["aliyun", "smsbao"],
+    "type": "library",
+    "require": {
+        "php": ">=5.6",
+        "alibabacloud/client": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xiaofan\\Sms\\": "src"
+        }
+    },
+    "license": "MIT"
+}
