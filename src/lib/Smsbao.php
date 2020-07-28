@@ -87,7 +87,7 @@ class Smsbao {
         try {
             $message = $this->post($post_data, self::API_URL);
         } catch (\Exception $ex) {
-            $this->error = $ex->getMessage();
+            $this->error = '短信发送请求超时';
             return false;
         }
         if ($message === '0') {
