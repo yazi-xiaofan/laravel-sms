@@ -158,6 +158,7 @@ class Ihuyi {
     //将 xml数据转换为数组格式。
     private function xml_to_array($xml) {
         $reg = "/<(\w+)[^>]*>([\\x00-\\xFF]*)<\\/\\1>/";
+        $arr = [];
         if (preg_match_all($reg, $xml, $matches)) {
             $count = count($matches[0]);
             for ($i = 0; $i < $count; $i++) {
